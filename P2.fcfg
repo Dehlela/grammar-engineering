@@ -1,0 +1,72 @@
+S[TENSE=?t] -> NP[NUM=?n] VP[NUM=?n, TENSE=?t, SUBCAT=nil]
+S -> Conj S[TENSE=?t] S[TENSE=?t]
+S -> Wh-NP Aux[NUM=?n] NP[NUM=?n] VP[SUBCAT=nil]
+NP[NUM=?n] -> ProperNoun[NUM=?n]
+NP[NUM=pl] -> NP Conj NP
+NP[NUM=?n] -> massNoun[NUM=?n]
+NP[NUM=?n] -> Adj NP[NUM=?n]
+NP[NUM=?n] -> Det[NUM=?n] NP[NUM=?n]
+NP[NUM=?n] -> N[NUM=?n]
+
+VP[NUM=?n, TENSE=?t, SUBCAT=?args] -> V[NUM=?n, TENSE=?t, SUBCAT=?args]
+VP[NUM=?n, TENSE=?t, SUBCAT=?rest] -> VP[NUM=?n, TENSE=?t, SUBCAT=[HEAD=?arg, TAIL=?rest]] ARG[CAT=?arg, TENSE=?any]
+VP[NUM=?n, TENSE=?t, SUBCAT=?rest] -> VP[NUM=?n, TENSE=?t, SUBCAT=[HEAD=?arg, TAIL=?rest]] SConj[NUM=?n, TENSE=?t, CAT=?arg]
+SConj[NUM=?n, TENSE=?t, CAT=ConjVP] -> Conj VP[NUM=?n, TENSE=?t, SUBCAT=?rest]
+VP[NUM=?n, TENSE=?t, SUBCAT=?args] -> Adv V[NUM=?n, TENSE=?t, SUBCAT=?args]
+ARG[CAT=np] -> NP
+ARG[CAT=pp] -> PP
+ARG[CAT=gerund] -> GerundV ARG[CAT=np]
+ARG[CAT=s, TENSE=?t] -> S[TENSE=?t]
+ARG[CAT=pp] -> ADJUNCT[CAT=pp] PP
+ADJUNCT[CAT=pp] -> PP
+
+PP -> Prep NP
+
+V[NUM=pl, TENSE=pres] -> 'feed'
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=np, TAIL=[HEAD=np, TAIL=nil]]] -> 'feeds'
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=np, TAIL=nil]] -> 'feeds'
+V[TENSE=past] -> 'fed'
+GerundV[TENSE=pres, SUBCAT=[HEAD=np, TAIL=nil]] -> 'feeding'
+
+V[NUM=pl, TENSE=pres, SUBCAT=nil] -> 'bark'
+V[NUM=sg, TENSE=pres, SUBCAT=nil] -> 'barks'
+V[TENSE=past] -> 'barked'
+
+V[NUM=pl, TENSE=pres, SUBCAT=nil] -> 'eat'
+V[NUM=pl, TENSE=pres, SUBCAT=[HEAD=np, TAIL=nil]] -> 'eat'
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=np, TAIL=nil]] -> 'eats'
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=np, TAIL=[HEAD=ConjVP, TAIL=nil]]] -> 'eats'
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'eats'
+V[TENSE=past, SUBCAT=[HEAD=np, TAIL=nil]] -> 'ate'
+V[TENSE=past, SUBCAT=[HEAD=np, TAIL=[HEAD=ConjVP, TAIL=nil]]] -> 'ate'
+V[TENSE=past, SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'ate'
+
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=np, TAIL=nil]] -> 'drinks'
+V[NUM=sg, TENSE=pres, SUBCAT=nil] -> 'drinks'
+V[NUM=sg, TENSE=past, SUBCAT=[HEAD=np, TAIL=nil]] -> 'drank'
+
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=s, TAIL=nil]] -> 'thinks'
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=s, TAIL=nil]] -> 'think'
+
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'puts'
+V[NUM=sg, TENSE=pres, SUBCAT=[HEAD=gerund, TAIL=[HEAD=np, TAIL=nil]]] -> 'likes'
+
+Aux[NUM=sg, TENSE=pres] -> 'does'
+Adv -> 'seldom'
+Adv -> 'often'
+Adj -> 'tasty'
+Adj -> 'soft'
+ProperNoun[NUM=sg] -> 'Wallace'
+ProperNoun[NUM=sg] -> 'Gromit'
+massNoun -> 'cheese'
+massNoun -> 'water'
+N -> 'dinner'
+N[NUM=sg] -> 'kitchen'
+Conj -> 'and'
+Conj -> 'when'
+Wh-NP -> 'when'
+Wh-NP -> 'what'
+Wh-NP -> 'whom'
+Prep -> 'in'
+Prep -> 'after'
+Det[NUM=sg] -> 'the'
