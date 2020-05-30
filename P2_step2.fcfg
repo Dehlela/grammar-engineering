@@ -1,0 +1,54 @@
+S -> NP VP
+S -> Conj S S
+S -> Wh-NP Aux S
+
+NP -> ProperNoun
+NP -> NP Conj NP
+NP -> massNoun
+NP -> Adj NP
+NP -> Det NP
+NP -> N
+
+VP -> V
+VP -> VP ARG
+VP -> Adv V
+VP -> VP SConj
+SConj -> Conj VP
+VP -> VP ADJUNCT
+
+ARG -> NP
+ARG -> PP
+ARG -> S
+ARG -> ADJUNCT PP
+ADJUNCT -> PP
+
+PP -> Prep NP
+
+V -> 'feed'
+V -> 'feeds'
+V -> 'fed'
+V -> 'barks'
+V -> 'barked'
+V -> 'eat'
+V -> 'eats'
+V -> 'ate'
+V -> 'drinks'
+V -> 'thinks'
+V -> 'puts'
+Aux -> 'does'
+Adv -> 'seldom'
+Adv -> 'often'
+Adj -> 'tasty'
+Adj -> 'soft'
+ProperNoun -> 'Wallace'
+ProperNoun -> 'Gromit'
+massNoun -> 'cheese'
+massNoun -> 'water'
+N -> 'dinner'
+N -> 'kitchen'
+Conj -> 'and'
+Conj -> 'when'
+Wh-NP -> 'when'
+Prep -> 'in'
+Prep -> 'after'
+Det -> 'the'
